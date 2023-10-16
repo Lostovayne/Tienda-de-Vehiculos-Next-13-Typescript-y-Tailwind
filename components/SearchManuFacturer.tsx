@@ -5,7 +5,10 @@ import Image from "next/image";
 import { Fragment, useState } from "react";
 import { manufacturers } from "@/constants";
 
-export const SearchManuFacturer = ({ manufacturer, setManuFacturer }: SearchManuFacturerProps) => {
+export const SearchManuFacturer = ({
+    manufacturer,
+    setManuFacturer,
+}: SearchManuFacturerProps) => {
     const [query, setQuery] = useState("");
 
     const filterManufacturers =
@@ -45,14 +48,17 @@ export const SearchManuFacturer = ({ manufacturer, setManuFacturer }: SearchManu
                         afterLeave={() => setQuery("")}
                     >
                         <Combobox.Options>
-                            {filterManufacturers.length === 0 && query !== "" && (
-                                <Combobox.Option
-                                    value={query}
-                                    className={"search-manufacturer__option"}
-                                >
-                                    Create "{query}"
-                                </Combobox.Option>
-                            )}
+                            {filterManufacturers.length === 0 &&
+                                query !== "" && (
+                                    <Combobox.Option
+                                        value={query}
+                                        className={
+                                            "search-manufacturer__option"
+                                        }
+                                    >
+                                        Create "{query}"
+                                    </Combobox.Option>
+                                )}
                         </Combobox.Options>
                     </Transition>
                 </div>
@@ -60,3 +66,5 @@ export const SearchManuFacturer = ({ manufacturer, setManuFacturer }: SearchManu
         </div>
     );
 };
+
+// 1:02:30 continuar desde ahi
